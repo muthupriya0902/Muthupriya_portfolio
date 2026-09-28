@@ -1,7 +1,6 @@
-import React, { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRobot, faCogs, faChartLine } from '@fortawesome/free-solid-svg-icons';
 import Chip from '@mui/material/Chip';

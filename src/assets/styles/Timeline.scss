@@ -31,7 +31,6 @@
     color: white;
 }
 
-/* Keep timeline markers centered on a slightly stronger center line. */
 #history .vertical-timeline::before {
     width: 5px;
     transform-origin: top center;
@@ -86,7 +85,6 @@
     }
 }
 
-/* Career History typography, scaled to match the larger Expertise text. */
 #history .items-container > h1 {
     font-size: 56px !important;
     font-weight: 700 !important;
@@ -117,7 +115,6 @@
     opacity: 1 !important;
 }
 
-/* Keep desktop cards on their own side of the center line. */
 @media screen and (min-width: 1170px) {
     #history .vertical-timeline {
         width: 100%;
@@ -166,7 +163,6 @@
         max-width: none;
     }
 
-    /* Date is rendered inside .vertical-timeline-element-content. */
     #history .vertical-timeline--two-columns .vertical-timeline-element:nth-child(odd) .vertical-timeline-element-date {
         position: absolute !important;
         top: 30px;

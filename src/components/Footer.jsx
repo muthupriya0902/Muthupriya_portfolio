@@ -1,4 +1,3 @@
-import React from "react";
 import EmailIcon from '@mui/icons-material/Email';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import '../assets/styles/Footer.scss'

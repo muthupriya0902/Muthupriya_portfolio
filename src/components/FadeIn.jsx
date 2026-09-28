@@ -14,19 +14,16 @@ import React, {
     useEffect(() => {
       let count = React.Children.count(props.children);
       if (!visible) {
-        // Animate all children out
         count = 0;
       }
   
       if (count === maxIsVisible) {
-        // We're done updating maxVisible, notify when animation is done
         const timeout = setTimeout(() => {
           if (props.onComplete) props.onComplete();
         }, transitionDuration);
         return () => clearTimeout(timeout);
       }
   
-      // Move maxIsVisible toward count
       const increment = count > maxIsVisible ? 1 : -1;
       const timeout = setTimeout(() => {
         setMaxIsVisible(maxIsVisible + increment);

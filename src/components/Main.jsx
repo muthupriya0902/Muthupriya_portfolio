@@ -1,4 +1,3 @@
-import React from "react";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import avatar from '../assets/images/avatar.png';
 import '../assets/styles/Main.scss';
