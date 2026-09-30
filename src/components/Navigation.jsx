@@ -112,17 +112,17 @@ function Navigation({ parentToChild, modeChange }) {
         id="navigation"
         className={`navbar-fixed-top${scrolled ? " scrolled" : ""}`}
         sx={{
-          height: "64px",
-          minHeight: "64px",
-          maxHeight: "64px",
+          height: "var(--navbar-height)",
+          minHeight: "var(--navbar-height)",
+          maxHeight: "var(--navbar-height)",
         }}
       >
         <Toolbar
           className="navigation-bar"
           sx={{
-            height: "64px",
-            minHeight: "64px",
-            maxHeight: "64px",
+            height: "var(--navbar-height)",
+            minHeight: "var(--navbar-height)",
+            maxHeight: "var(--navbar-height)",
             padding: "0 24px",
           }}
         >

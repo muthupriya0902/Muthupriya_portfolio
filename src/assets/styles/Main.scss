@@ -1,15 +1,15 @@
 #navigation.navbar-fixed-top {
-    height: 98px !important;
-    min-height: 98px !important;
-    max-height: 98px !important;
+    height: var(--navbar-height) !important;
+    min-height: var(--navbar-height) !important;
+    max-height: var(--navbar-height) !important;
     padding: 0 !important;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.55) !important;
 }
 
 #navigation .navigation-bar {
-    height: 98px !important;
-    min-height: 98px !important;
-    max-height: 98px !important;
+    height: var(--navbar-height) !important;
+    min-height: var(--navbar-height) !important;
+    max-height: var(--navbar-height) !important;
     padding: 0 34px !important;
     box-sizing: border-box;
 }
@@ -42,7 +42,8 @@
     align-items: center;
     width: 100%;
     padding: 0px 15%;
-    min-height: 100vh;
+    min-height: calc(100vh - var(--navbar-height));
+    box-sizing: border-box;
     background-image: url("../images/bg-dark.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -223,23 +224,19 @@
         }
 
         #navigation.navbar-fixed-top {
-            height: 64px !important;
-            min-height: 64px !important;
-            max-height: 64px !important;
+            height: var(--navbar-height) !important;
+            min-height: var(--navbar-height) !important;
+            max-height: var(--navbar-height) !important;
         }
 
         #navigation .navigation-bar {
-            height: 64px !important;
-            min-height: 64px !important;
-            max-height: 64px !important;
+            height: var(--navbar-height) !important;
+            min-height: var(--navbar-height) !important;
+            max-height: var(--navbar-height) !important;
         }
 
         #navigation button {
             font-size: 15px !important;
-        }
-
-        .container {
-            margin-top: 64px;
         }
     }
 }
