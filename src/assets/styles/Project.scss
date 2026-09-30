@@ -1,20 +1,20 @@
 .projects-container {
     display: flex;
     flex-direction: column;
-    padding: 5% 10%;
+    padding: 3.5rem 8%;
     text-align: left;
 }
 
 .projects-container > h1 {
-    font-size: 64px;
+    font-size: 42px;
     line-height: 1.15;
 }
   
 .projects-container .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    column-gap: 50px;
-    row-gap: 120px;
+    column-gap: 36px;
+    row-gap: 64px;
 }
   
 .projects-container .projects-grid .project {
@@ -87,18 +87,18 @@
 }
 
 .project-copy h2 {
-    margin: 0 0 26px;
-    font-size: 44px;
+    margin: 0 0 16px;
+    font-size: 24px;
     line-height: 1.2;
 }
 
 .project-copy {
-    padding-top: 30px;
+    padding-top: 20px;
 }
 
 .project-copy p {
     margin: 0;
-    font-size: 32px;
+    font-size: 17px;
     line-height: 1.5;
 }
 
