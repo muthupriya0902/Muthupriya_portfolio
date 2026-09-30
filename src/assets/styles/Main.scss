@@ -51,6 +51,12 @@
     background-position: center;
 }
 
+@media (min-width: 769px) {
+    .about-section {
+        min-height: calc(100vh - var(--navbar-height));
+    }
+}
+
 .about-section .content {
     text-align: left;
     z-index: 2;
