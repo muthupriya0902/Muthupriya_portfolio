@@ -50,7 +50,8 @@ function Timeline() {
           trigger: sectionRef.current,
           start: "top 72%",
           end: "bottom 28%",
-          toggleActions: "restart none restart none",
+          toggleActions: "play none none none",
+          once: true,
         },
       });
 

@@ -64,11 +64,11 @@ function Main() {
     <div className="container">
       <div className="about-section">
         <div className="image-wrapper">
-          <img src={avatar} alt="S. Muthupriya" />
+          <img src={avatar} alt="Muthupriya S" />
         </div>
         <div className="content">
           <HeroLinks className="social_icons" />
-          <h1>S. Muthupriya</h1>
+          <h1>Muthupriya S</h1>
           <p>Digital Marketing Manager | AI &amp; Growth Strategist</p>
 
           <HeroLinks className="mobile_social_icons" />

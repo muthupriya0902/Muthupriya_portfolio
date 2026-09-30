@@ -90,7 +90,7 @@ function Project() {
 
     return(
     <div className="projects-container" id="projects" ref={sectionRef}>
-        <h1>Personal Projects</h1>
+        <h1>Client Projects</h1>
         <div className="projects-grid">
             {projects.map((project) => (
                 <div className="project" key={project.title}>

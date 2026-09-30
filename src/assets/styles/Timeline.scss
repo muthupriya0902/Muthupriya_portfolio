@@ -165,8 +165,9 @@
 
     #history .vertical-timeline--two-columns .vertical-timeline-element:nth-child(odd) .vertical-timeline-element-date {
         position: absolute !important;
-        top: 22px;
-        left: calc(100% + 105px) !important;
+        top: 26px;
+        transform: translateY(-50%);
+        left: calc(100% + 113px) !important;
         right: auto !important;
         z-index: 30 !important;
         width: max-content;
@@ -176,8 +177,9 @@
 
     #history .vertical-timeline--two-columns .vertical-timeline-element:nth-child(even) .vertical-timeline-element-date {
         position: absolute !important;
-        top: 22px;
-        right: calc(100% + 105px) !important;
+        top: 26px;
+        transform: translateY(-50%);
+        right: calc(100% + 113px) !important;
         left: auto !important;
         z-index: 30 !important;
         width: max-content;
