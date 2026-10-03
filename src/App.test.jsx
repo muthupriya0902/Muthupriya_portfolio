@@ -3,5 +3,5 @@ import App from './App';
 
 test('renders portfolio owner name', () => {
   render(<App />);
-  expect(screen.getAllByText(/S. Muthupriya/i).length).toBeGreaterThan(0);
+  expect(screen.getAllByText(/Muthupriya S/i).length).toBeGreaterThan(0);
 });

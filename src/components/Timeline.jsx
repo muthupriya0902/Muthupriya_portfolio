@@ -1,11 +1,9 @@
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
-import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component';
-import 'react-vertical-timeline-component/style.min.css';
-import '../assets/styles/Timeline.scss'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBriefcase } from "@fortawesome/free-solid-svg-icons";
+import "../assets/styles/Timeline.scss";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -15,6 +13,12 @@ const experiences = [
     company: "BrixHive",
     date: "May 2026 - Present",
     description: "Managed Google and Meta Ads, SEO, social media marketing, and performance reporting to drive brand growth.",
+  },
+  {
+    title: "Digital Marketing Executive",
+    company: "Digicuz",
+    date: "September 2025 - May 2026",
+    description: "Improved on-page and off-page SEO, wrote blogs, and managed WordPress marketing activities.",
   },
   {
     title: "Digital Marketing Executive",
@@ -28,12 +32,6 @@ const experiences = [
     date: "December 2024 - April 2025",
     description: "Built social media engagement, executed paid campaigns, and analyzed performance to support brand growth.",
   },
-  {
-    title: "Digital Marketing Executive",
-    company: "Digicuz",
-    date: "September 2025 - May 2026",
-    description: "Improved on-page and off-page SEO, wrote blogs, and managed WordPress marketing activities.",
-  },
 ];
 
 function Timeline() {
@@ -43,80 +41,73 @@ function Timeline() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
 
     const context = gsap.context(() => {
-      const isMobile = window.matchMedia("(max-width: 767px)").matches;
-      const items = gsap.utils.toArray(".vertical-timeline-element");
-      const sequence = gsap.timeline({
+      gsap.to(".career-timeline", {
+        "--history-progress": 1,
+        ease: "none",
         scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 72%",
-          end: "bottom 28%",
-          toggleActions: "play none none none",
-          once: true,
+          trigger: ".career-timeline",
+          start: "top 60%",
+          end: "bottom 55%",
+          scrub: 0.45,
         },
       });
 
-      sequence.fromTo(
-        ".items-container > h1",
-        { autoAlpha: 0, y: 20 },
-        { autoAlpha: 1, y: 0, duration: 0.55, ease: "power2.out" },
-        0
-      );
-      sequence.fromTo(
-        ".vertical-timeline",
-        { "--history-line-progress": 0 },
-        { "--history-line-progress": 1, duration: 3.25, ease: "power1.inOut" },
-        0.2
-      );
-
-      items.forEach((item, index) => {
-        const milestone = item.querySelector(".vertical-timeline-element-icon");
-        const card = item.querySelector(".vertical-timeline-element-content");
-        const fromX = isMobile ? 24 : index % 2 === 0 ? -30 : 30;
-        const position = 0.65 + index * 0.72;
-
-        sequence.fromTo(
-          milestone,
-          { autoAlpha: 0, scale: 0.5 },
-          { autoAlpha: 1, scale: 1, duration: 0.38, ease: "power2.out" },
-          position
-        );
-        sequence.fromTo(
-          card,
-          { autoAlpha: 0, x: fromX, y: 16 },
-          { autoAlpha: 1, x: 0, y: 0, duration: 0.5, ease: "power2.out" },
-          position + 0.16
-        );
+      const entries = gsap.utils.toArray(".career-entry");
+      entries.forEach((entry, index) => {
+        gsap.from(entry, {
+          autoAlpha: 0,
+          x: index % 2 === 0 ? 22 : -22,
+          y: 12,
+          duration: 0.62,
+          ease: "power3.out",
+          scrollTrigger: { trigger: entry, start: "top 82%", once: true },
+        });
+        ScrollTrigger.create({
+          trigger: entry,
+          start: "top 58%",
+          end: "bottom 42%",
+          onToggle: (self) => {
+            if (self.isActive) {
+              entries.forEach((item) => item.classList.remove("is-active"));
+              entry.classList.add("is-active");
+            } else {
+              entry.classList.remove("is-active");
+            }
+          },
+        });
       });
-
     }, sectionRef);
 
     return () => context.revert();
   }, []);
 
   return (
-    <div id="history" ref={sectionRef}>
-      <div className="items-container">
-        <h1>Career History</h1>
-        <VerticalTimeline animate={false}>
+    <section className="history-section" id="history" ref={sectionRef} aria-labelledby="history-title">
+      <div className="section-wrap">
+        <header className="history-header">
+          <p className="section-kicker">Career history</p>
+          <h2 className="section-heading" id="history-title">Built through <em>practice.</em></h2>
+          <p className="section-intro">Roles across digital marketing, search, social media and automation.</p>
+        </header>
+
+        <ol className="career-timeline">
           {experiences.map((experience, index) => (
-            <VerticalTimelineElement
-              key={`${experience.company}-${experience.date}`}
-              className="vertical-timeline-element--work"
-              position={index % 2 === 0 ? "left" : "right"}
-              contentStyle={{ background: "white", color: "rgb(39, 40, 34)" }}
-              contentArrowStyle={{ borderRight: "7px solid white" }}
-              date={experience.date}
-              iconStyle={{ background: "#5000ca", color: "white" }}
-              icon={<FontAwesomeIcon icon={faBriefcase} />}
-            >
-              <h3 className="vertical-timeline-element-title">{experience.title}</h3>
-              <h4 className="vertical-timeline-element-subtitle">{experience.company}</h4>
-              <p>{experience.description}</p>
-            </VerticalTimelineElement>
+            <li className="career-entry" key={`${experience.company}-${experience.date}`}>
+              <p className="career-entry__date">{experience.date}</p>
+              <span className="career-entry__marker" aria-hidden="true">
+                <FontAwesomeIcon icon={faBriefcase} />
+              </span>
+              <article className="career-entry__content">
+                <span className="career-entry__index" aria-hidden="true">0{index + 1}</span>
+                <h3>{experience.title}</h3>
+                <h4>{experience.company}</h4>
+                <p>{experience.description}</p>
+              </article>
+            </li>
           ))}
-        </VerticalTimeline>
+        </ol>
       </div>
-    </div>
+    </section>
   );
 }
 

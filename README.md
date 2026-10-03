@@ -1,4 +1,4 @@
-# S. Muthupriya — Portfolio
+# Muthupriya S — Portfolio
 
 A personal portfolio showcasing my expertise, career history, and projects.
 
