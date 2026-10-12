@@ -26,7 +26,10 @@
 
 .project-feature__visual {
   position: relative;
+  display: grid;
+  place-items: center;
   aspect-ratio: 3 / 2;
+  padding: clamp(14px, 2.4vw, 34px);
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: var(--radius-frame);
@@ -43,9 +46,13 @@
   --project-tilt-x: 0deg;
   --project-tilt-y: 0deg;
   display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  min-width: 0;
+  min-height: 0;
+  object-fit: contain;
   object-position: center;
   transform: translate3d(var(--project-pointer-x), calc(var(--project-scroll-y) + var(--project-pointer-y)), 0) rotateX(var(--project-tilt-x)) rotateY(var(--project-tilt-y)) scale(var(--project-image-scale));
   transform-origin: center;
@@ -119,6 +126,10 @@
   color: var(--muted);
   font-size: 0.96rem;
   line-height: 1.65;
+}
+
+.project-feature__link {
+  margin-top: 18px;
 }
 
 .project-feature--1,
@@ -231,15 +242,8 @@
   }
 
   .project-feature__visual {
-    aspect-ratio: auto;
-    height: auto;
-    overflow: hidden;
+    aspect-ratio: 3 / 2;
+    min-width: 0;
   }
 
-  .project-feature__visual img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    object-position: center;
-  }
 }
